@@ -1,0 +1,385 @@
+body{
+  background-color:pink;
+}
+/* confetti wrapper full screen */
+.normal-text{
+  position: absolute;          /* position over the cake */
+  top: 150%;                    /* slightly below center vertically */
+  left: 50%;                   /* horizontally center */
+  transform: translateX(-50%);
+  font-size: 20px;             /* readable size */
+  font-weight: bold;           /* make it stand out */
+  color: crimson; 
+  text-align: center;
+  z-index: 100;                /* above all cake elements */
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.3); /* optional: pop effect */
+  white-space: nowrap
+}
+.heading {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Kapakana', cursive;
+  font-size: 70px;
+  color: #d1213f;
+  text-align: center;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  z-index: 100;
+}
+.confetti {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 100;
+}
+
+/* individual confetti pieces */
+.confetti-piece {
+  position: absolute;
+  width: 8px;
+  height: 14px;
+  background-color: red;
+  opacity: 0;
+  animation: fall 3s linear forwards;
+}
+
+/* random colors, positions, delays */
+.confetti-piece:nth-child(10n+1) { background: #ff0; left: 5%;  animation-delay: 10s; }
+.confetti-piece:nth-child(10n+2) { background: #0f0; left: 15%; animation-delay: 10.1s; }
+.confetti-piece:nth-child(10n+3) { background: #0ff; left: 25%; animation-delay: 10.2s; }
+.confetti-piece:nth-child(10n+4) { background: #f0f; left: 35%; animation-delay: 10.3s; }
+.confetti-piece:nth-child(10n+5) { background: #f90; left: 45%; animation-delay: 10.4s; }
+.confetti-piece:nth-child(10n+6) { background: #09f; left: 55%; animation-delay: 10.5s; }
+.confetti-piece:nth-child(10n+7) { background: #fa0; left: 65%; animation-delay: 10.6s; }
+.confetti-piece:nth-child(10n+8) { background: #0af; left: 75%; animation-delay: 10.7s; }
+.confetti-piece:nth-child(10n+9) { background: #af0; left: 85%; animation-delay: 10.8s; }
+.confetti-piece:nth-child(10n+10){ background: #f33; left: 95%; animation-delay: 10.9s; }
+
+/* falling effect */
+@keyframes fall {
+  0%   { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+  50%  { transform: translateY(50vh) rotate(180deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+.blow-text {
+  position: absolute;          /* position over the cake */
+  top: 150%;                    /* slightly below center vertically */
+  left: 50%;                   /* horizontally center */
+  transform: translateX(-50%);
+  font-size: 20px;             /* readable size */
+  font-weight: bold;           /* make it stand out */
+  color: crimson;              /* bright color */
+  font-family: 'Pixelify Sans', sans-serif;
+  text-align: center;
+  z-index: 100;                /* above all cake elements */
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.3); /* optional: pop effect */
+  white-space: nowrap;
+}
+
+.countdown-number {
+  position: absolute;
+  top: 150%;             /* vertically center relative to cake-container */
+  left: 50%;            /* horizontally center */
+  transform: translate(-50%, -50%);
+  font-size: 80px;      /* big number */
+  font-weight: bold;
+  color: crimson;       /* bright color */
+  
+  z-index: 100;         /* above all cake elements */
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.3); /* optional for visibility */
+}
+
+.ca {
+  position: absolute;
+  top: 250px;          /* distance from top */
+  left: 50%;           /* center horizontally */
+  transform: translateX(-50%);
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 15px;
+  background-color: crimson;
+  color: white;
+  border: white;
+  text-align: center;
+  font-weight: bold;
+  padding: 6px 12px;   /* optional */
+  border-radius: 5px;  /* optional rounded corners */
+}
+
+.cake-container {
+          position: absolute;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          top: 260px;
+          left: 550px;
+
+        }
+
+.cake-base {
+          width: 250px;
+          height: 150px;
+          background-color: #e0e0e0;
+          border-radius: 8px;
+          position: relative;
+        }
+
+.cake-icing {
+          width: 260px;
+          height: 20px;
+          background-color: #2fbaf1;
+          border-radius: 8px 8px 0 0;
+          position: relative;
+          top: 2px;
+        }
+
+.cake-frosting {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: 8px;
+          background-color: #ffcccc; /* Frosting is now a light red */
+          box-shadow: 
+            inset 0 0 10px #ff9999,
+            inset 0 0 20px #ff6666,
+            inset 0 0 30px #ff3333;
+        }
+.frosting::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 20px;
+  width: 20px;
+  height: 15px;
+  background: #a72c41;
+  border-radius: 0 0 50% 50%;
+}
+
+.frosting::before {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 80px;
+  width: 25px;
+  height: 20px;
+  background: #d31c3b;
+  border-radius: 0 0 50% 50%;
+}
+
+.candle {
+  position: absolute;
+  width: 15px;
+  height: 80px;
+  background-color: #a96bce;
+  border-radius: 4px;
+  top: -80px;
+  z-index: 10;
+}
+.flame {
+  position: absolute;
+  width: 17px;
+  height: 45px;
+  background-color: #ffae00;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50% 50% 0 0 / 70% 70% 30% 30%;
+  box-shadow: 0 0 10px 2px #ffad00;
+  z-index: 20;
+  opacity: 0.9;
+  animation: slimeWave 1.5s infinite ease-in-out, glow 2s infinite alternate;
+}
+
+/* Flame blow-out animation */
+.flame.blow-out {
+  animation: slimeWave 1.5s infinite ease-in-out, glow 2s infinite alternate, fadeOut 2s ease forwards;
+  animation-delay: 0s, 0s, 0s;
+}
+@keyframes blowOut {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.3);
+  }
+}
+
+@keyframes fadeOut {
+  0%   { opacity: 1; transform: translateX(-50%) scale(1); }
+  50%  { opacity: 1; transform: translateX(-50%) scale(0.6); } /* compress first */
+  100% { opacity: 0; transform: translateX(50%) scale(0.3); }  /* blow sideways */
+}
+
+@keyframes slimeWave {
+  0%   { width: 17px; height: 45px; border-radius: 50% 50% 0 0 / 70% 70% 30% 30%; }
+  20%  { width: 22px; height: 48px; border-radius: 60% 60% 0 0 / 80% 80% 25% 25%; }
+  40%  { width: 25px; height: 50px; border-radius: 70% 70% 0 0 / 90% 90% 20% 20%; }
+  60%  { width: 20px; height: 46px; border-radius: 65% 65% 0 0 / 85% 85% 25% 25%; }
+  80%  { width: 23px; height: 49px; border-radius: 68% 68% 0 0 / 88% 88% 22% 22%; }
+  100% { width: 17px; height: 45px; border-radius: 50% 50% 0 0 / 70% 70% 30% 30%; }
+}
+
+@keyframes glow {
+  0%   { box-shadow: 0 0 10px #ffad00, 0 0 20px #ffae00; }
+  50%  { box-shadow: 0 0 15px #ffca00, 0 0 25px #ffb300; }
+  100% { box-shadow: 0 0 10px #ffad00, 0 0 20px #ffae00; }
+}
+
+
+/* flame blow out */
+
+/* smoke rising */
+
+
+
+.btn{
+ margin-top: 30px;
+ text-align: center;
+ margin-left : 660px;
+  border-radius: 5px;
+  background-color:#d1213f ;
+  font-family: 'Pixelify Sans', sans-serif;
+  color: white;
+  padding: 5px 7px;
+  border: white;
+
+}
+.roses-message{
+  align-items: center;
+  margin-top: 40px;
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 20px;
+  color: crimson;
+  text-align: center;
+  font-weight: bold;
+
+}
+.pick-title {
+  text-align: center;           /* centers text horizontally */
+  font-family: 'Kapakana', cursive; /* your font */
+  font-size: 70px;
+  color: #d1213f;
+  margin-top: 50px;             /* space from top */
+  margin-bottom: 30px;          /* space before cards */
+  position: relative;   
+  font-weight: 1px;
+}
+.rose1-img{
+  max-width: 60%;
+  max-height: 60%;
+  object-fit: contain;
+
+}
+
+.kapakana-birthday {
+  font-family: "Kapakana", cursive;
+  font-optical-sizing: auto;
+  font-weight: 50px; /* normal weight */
+  font-style: normal;
+  position : fixed;
+  left: 600px;
+  top: 2px;
+  
+  font-size: 70px;
+  color: rgb(211, 63, 88)
+}
+
+.kapakana-subheading {
+  font-family: "Kapakana", cursive;
+  font-optical-sizing: auto;
+  
+  font-style: normal;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 150px;
+  margin-top: 50px;
+}
+
+.card-outer {
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+/* Inner container that flips */
+.card-inner {
+  width: 250px;
+  height: 300px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease; /* flip speed */
+}
+
+.card-inner.flipped {
+  transform: rotateY(180deg) ;
+}
+
+/* Hover lift effect combined with rotation */
+.card-outer:hover {
+  transform: translateY(-10px); /* lift only */
+  transition: transform 0.3s ease;
+  box-shadow: 0 10px 15px rgb(231, 114, 133);
+}
+
+/* Front and back faces shared styles */
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  border: 2px solid #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  backface-visibility: hidden;
+}
+
+/* Front face style */
+.card-face.front {
+  background: radial-gradient(circle at center, #ffc0cb 0%, #ff69b4 70%);
+}
+
+/* Back face style */
+.card-face.back {
+  background-color: rgb(245, 168, 168);
+  transform: rotateY(180deg);
+}
+
+/* Pixel / robotic font for first card back only */
+.pixel-text {
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 24px;
+  color: rgb(197, 58, 81); /* futuristic green text */
+  text-align: center;
+}
+.butt{
+  position: absolute;
+  top:45%;
+  left:47%;
+  background-color: rgb(197, 58, 81);     /* Pink background inside the box */
+  color: white;               /* White text */
+  padding: 16px 28px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.5s ease-in-out;
+}
+.butt:hover{
+  box-shadow: 5px 5px 10px rgb(255, 255, 255);
+  transform: scale(1.05);
+}
+.butt:active{
+  transform: scale(0.98);
+}
